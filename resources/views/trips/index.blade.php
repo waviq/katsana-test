@@ -24,7 +24,7 @@
                     @endforeach
                 </td>
                 <td>
-                    <a href="{{url(action('KatsanaTestController@create', '?xid='.$trip->id))}}" class="btn btn-primary">Export CSV</a>
+                    <a href="{{url(action('KatsanaTestController@create', 'xid='.$trip->id))}}" class="btn btn-primary">Export CSV</a>
                 </td>
             </tr>
         @endforeach
