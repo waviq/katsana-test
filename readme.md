@@ -21,7 +21,7 @@
    <pre>Asia/Kuala_Lumpurl</pre>
 7. Import example data from json, running artisan command:
    <pre>php artisan katsana:import</pre>
-8. open `env.js` in your root folder, 
+8. open `.env` in your root folder, 
    make sure where your enviroment running, 
    default `http://localhost:8000/`
 9. When in local, run server using

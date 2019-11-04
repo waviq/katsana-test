@@ -14,12 +14,13 @@ class TripExport implements FromCollection, WithHeadings
     */
 
 
+    public $dataAll;
 
     public function collection()
     {
-        $trip = Position::where('trip_id', request()->get('xid'))->get();
-        $dataAll = array();
-        foreach ($trip as $position)  {
+        $trip = Trip::find(request()->get('xid'));
+
+        foreach ($trip->position as $position)  {
             $data = [
                 'ID' => $position->id,
                 'Datetime' => date('Y-m-d h:i:s', strtotime($position->tracked_at)),
@@ -30,10 +31,10 @@ class TripExport implements FromCollection, WithHeadings
                 'Voltage' => $position->voltage,
             ];
 
-            $dataAll[] = $data;
+            $this->dataAll[] = $data;
         }
 
-        return collect($dataAll);
+        return collect($this->dataAll);
 
     }
 
