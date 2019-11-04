@@ -18,6 +18,7 @@ class TripExport implements FromCollection, WithHeadings
     public function collection()
     {
         $trip = Position::where('trip_id', request()->get('xid'))->get();
+        $dataAll = array();
         foreach ($trip as $position)  {
             $data = [
                 'ID' => $position->id,
@@ -31,10 +32,8 @@ class TripExport implements FromCollection, WithHeadings
 
             $dataAll[] = $data;
         }
-        
-        if (!empty($dataAll)) {
-            return collect($dataAll);
-        }
+
+        return collect($dataAll);
 
     }
 
