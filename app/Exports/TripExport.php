@@ -15,6 +15,7 @@ class TripExport implements FromCollection, WithHeadings
     public function collection()
     {
         $trip = Position::where('trip_id', request()->get('xid'))->get();
+        $dataAll = [];
         foreach ($trip as $position) {
             $data = [
                 'ID' => $position->id,
