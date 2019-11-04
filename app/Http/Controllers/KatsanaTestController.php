@@ -19,6 +19,6 @@ class KatsanaTestController extends Controller
     }
 
     public function create(Request $request) {
-        return Excel::download(new TripExport(), 'trip_position.xls');
+        return Excel::download(new TripExport(), 'trip_position.csv');
     }
 }
